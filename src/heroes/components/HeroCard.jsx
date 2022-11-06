@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import './HeroeCard.scss'
 
 export const HeroCard = ({ id, superhero, publisher, alter_ego, first_appearance, characters }) => {
@@ -5,7 +6,7 @@ export const HeroCard = ({ id, superhero, publisher, alter_ego, first_appearance
     const heroImageUrl = `./src/assets/heroes/${id}.jpg`;
 
     return (
-        <diiv className="my-card">
+        <Link to={`/hero/${ id }`} className="my-card">
             <img src={ heroImageUrl } className="img img-responsive" alt={superhero}/>
             <div className="profile-name">{superhero}</div>
             <div className="profile-position">{alter_ego}</div>
@@ -23,6 +24,6 @@ export const HeroCard = ({ id, superhero, publisher, alter_ego, first_appearance
                     </div>
                 </div>
             </div>
-        </diiv>
+        </Link>
     )
 }
