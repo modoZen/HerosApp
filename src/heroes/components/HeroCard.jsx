@@ -3,7 +3,7 @@ import './HeroeCard.scss'
 
 export const HeroCard = ({ id, superhero, publisher, alter_ego, first_appearance, characters }) => {
 
-    const heroImageUrl = `./src/assets/heroes/${id}.jpg`;
+    const heroImageUrl = `/assets/${id}.jpg`;
 
     return (
         <Link to={`/hero/${ id }`} className="my-card animate__animated animate__fadeIn">
