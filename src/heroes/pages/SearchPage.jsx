@@ -1,14 +1,17 @@
 import { useSearchParams } from "react-router-dom"
 import { useForm } from "../../hooks/useForm"
 import { HeroCard } from "../components/HeroCard"
+import { getHerosByName } from "../helpers/getHerosByName";
 
 export const SearchPage = () => {
 
     const [searchParams, setSearchParams ] = useSearchParams();
-
-    const { searchText, onInputChange, onResetForm } = useForm({
-      searchText: ''
+    const q = searchParams.get( 'q' ) ?? '' ;
+    const { searchText, onInputChange } = useForm({
+      searchText: q 
     })
+
+    const heroes = getHerosByName( q );
 
     const onSearchSubmit = (e)=>{
       e.preventDefault();
@@ -53,8 +56,13 @@ export const SearchPage = () => {
             <div className="alert alert-danger">
               No hero with <b>{ searchParams.get('q') }</b>   
             </div>
-
-            {/* <HeroCard /> */}
+            <div className="row g-3">
+              {
+                heroes.map( hero => (
+                    <HeroCard key={hero.id} {...hero} />
+                ))
+              }
+            </div>
           </div>
         </div>
       </>

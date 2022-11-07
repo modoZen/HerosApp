@@ -14,10 +14,10 @@ export const HeroPage = () => {
 
     let publisher = '';
     
-    if(heroById.publisher === "DC Comics") publisher = '/dc';
-    if(heroById.publisher === "Marvel Comics") publisher = '/marvel';
+    // if(heroById.publisher === "DC Comics") publisher = '/dc';
+    // if(heroById.publisher === "Marvel Comics") publisher = '/marvel';
 
-    navigate( publisher );
+    navigate( -1 );
   }
 
   if( !heroById ) {
