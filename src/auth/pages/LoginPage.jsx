@@ -9,9 +9,11 @@ export const LoginPage = () => {
   const { login } = useContext( AuthContext );
 
   const onLogin = () => {
+
+    const lastPath = sessionStorage.getItem( 'lastPath' ) || '/'
     
     login('Satoshi');
-    navigate('/', {
+    navigate(lastPath, {
       replace: true
     });
   }
